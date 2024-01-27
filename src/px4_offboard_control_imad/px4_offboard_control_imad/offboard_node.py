@@ -174,11 +174,11 @@ class OffboardControl(Node):
         response.success = True
         return response
     
-    def land(self):
+    def land(self, request, response):
         vehicle_command = VehicleCommand()
         vehicle_command.command = VehicleCommand.VEHICLE_CMD_NAV_LAND
         self.publisher_vehicle_command.publish(vehicle_command)
-        
+        return response
 
 def main(args=None):
     rclpy.init(args=args)
